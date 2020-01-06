@@ -86,7 +86,7 @@ def findFile( path ):
             if path1.find(oStr) >= 0:
                 print('找到文件:',x)
                 print('路径:',path1)
-        else:
+        else:.
             findFile(path1)
 findFile(oPath)
         

@@ -80,13 +80,13 @@ oStr = input('文件名（包含）:')
 #     if os.path.isdir(os.path.join(oPath,x)):
 def findFile( path ):
     for x in os.listdir(path):
-        path1 = os.path.abspath(os.path.join(path,x))
+        # path1 = os.path.abspath(os.path.join(path,x))
         # path1 = os.path.join(path,x)
         if os.path.isfile(path1):
             if path1.find(oStr) >= 0:
                 print('找到文件:',x)
                 print('路径:',path1)
-        else:
+        else:.
             findFile(path1)
 findFile(oPath)
         

@@ -61,7 +61,7 @@ print(os.name)  #如果是posix，说明系统是Linux、Unix或Mac OS X，如�
 # os.remove('./test1.txt')
 
 # 最后看看如何利用Python的特性来过滤文件。比如我们要列出当前目录下的所有目录，只需要一行代码：
-# print([x for x in os.listdir('.') if os.path.isdir(x)])
+print([x for x in os.listdir('.') if os.path.isdir(x)])
 # 要列出所有的.py文件，也只需一行代码：
 # print([x for x in os.listdir('.') if os.path.isfile(x) and os.path.splitext(x)[1]=='.py'])
 # print([x for x in os.listdir('.') if os.path.isfile(x)])
@@ -72,22 +72,10 @@ print(os.name)  #如果是posix，说明系统是Linux、Unix或Mac OS X，如�
 
 # 编写一个程序，能在当前目录以及当前目录的所有子目录下查找文件名包含指定字符串的文件，并打印出相对路径。
 oPath = input('请输入查找路径:')
-oStr = input('文件名（包含）:')
-# oDir = [x for x in os.listdir(r'' + oPath) if os.path.isdir(x)]
-# print(oDir) 
+# oStr = input('文件名（包含）')
+oDir = [x for x in os.listdir('.') if os.path.isdir(x)]
+print(oDir) 
 # print(os.path.isdir(oDir[0]))
-# for x in os.listdir(oPath):
-#     if os.path.isdir(os.path.join(oPath,x)):
-def findFile( path ):
-    for x in os.listdir(path):
-        path1 = os.path.abspath(os.path.join(path,x))
-        # path1 = os.path.join(path,x)
-        if os.path.isfile(path1):
-            if path1.find(oStr) >= 0:
-                print('找到文件:',x)
-                print('路径:',path1)
-        else:
-            findFile(path1)
-findFile(oPath)
-        
+# for x in os.listdir(r''+ oPath):
+#     print(type(x))
 
