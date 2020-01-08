@@ -54,20 +54,20 @@ def fib(max):
 # 121
 # 1331
 # 14641
-def triangle(max):
-    yield([1])
-    L = [1,1]
-    yield(L)
-    n = 0
-    while n < max - 2:
-        L1 = [1]
-        for i in range(1,len(L)):
-            L1.append(L[i-1]+L[i])
-        L1.append(1)
-        L = L1
-        yield(L1)
-        n = n + 1
-    return 'done'
+# def triangle(max):
+#     yield([1])
+#     L = [1,1]
+#     yield(L)
+#     n = 0
+#     while n < max - 2:
+#         L1 = [1]
+#         for i in range(1,len(L)):
+#             L1.append(L[i-1]+L[i])
+#         L1.append(1)
+#         L = L1
+#         yield(L1)
+#         n = n + 1
+#     return 'done'
 
 # g = triangle(10)
 
@@ -79,19 +79,59 @@ def triangle(max):
 #         print(e.value)
 #         break
 
-def log(text=''):
-    def decorator(func):
-        print(1)
-        @functools.wraps(func)
-        def wrapper(*args,**kw):
-            print('begin call',text)
-            func(*args,**kw)
-            print('end call',text)
-        return wrapper
-    return decorator
+# def log(text=''):
+#     def decorator(func):
+#         print(1)
+#         @functools.wraps(func)
+#         def wrapper(*args,**kw):
+#             print('begin call',text)
+#             func(*args,**kw)
+#             print('end call',text)
+#         return wrapper
+#     return decorator
 
-@log('hello')
-def normalize(name):
-    print(name.capitalize())
+# @log('hello')
+# def normalize(name):
+#     print(name.capitalize())
 
-normalize('darren')
+# normalize('darren')
+
+# A = None
+# print(A)
+# def test():
+#     global A
+#     A = 100
+# test()
+# print(A)
+
+
+# while True:
+#     b = input('type something:')
+#     if b == '1':
+#         continue
+#     else:
+#         pass
+#     print('still in while')
+
+# print('finish while')
+
+# a = [1,2,3]
+# b = [4,5,6]
+# print(list(zip(a,b)))
+# for i, j in zip(a, b):
+#     print(i/2, j*2)
+
+# def fun1(x, y):
+#     return x+y
+# fun2 = lambda x,y: x*y
+# result = list(map(fun1, [1,2,3], [2,2,3]))
+# print(result)
+
+from copy import *
+a = [1,2,3,[5,6]]
+b = copy(a) 
+c = deepcopy(a)
+# id()查看硬盘中的索引
+print(id(a[3]))
+print(id(b[3]))
+print(id(c[3]))

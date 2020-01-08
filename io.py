@@ -21,7 +21,7 @@ from io import BytesIO
 #         f.close()
 
 # 但是每次都这么写实在太繁琐，所以，Python引入了with语句来自动帮我们调用close()方法：
-# with open('./test.txt', 'r', encoding = 'UTF-8', errors='ignore') as f:
+# with open('./test.txt', 'r/r+(只读加写入)', encoding = 'UTF-8', errors='ignore') as f:
 #     # for line in f.readlines():
 #     #     print(line.strip()) # 把末尾的'\n'删掉
 #     print(f.readlines()[1])
@@ -58,7 +58,7 @@ from io import BytesIO
 # 你可以反复调用write()来写入文件，但是务必要调用f.close()来关闭文件。当我们写文件时，操作系统往往不会立刻把数据写入磁盘，而是放到内存缓存起来，空闲的时候再慢慢写入。只有调用close()方法时，操作系统才保证把没有写入的数据全部写入磁盘。忘记调用close()的后果是数据可能只写了一部分到磁盘，剩下的丢失了。所以，还是用with语句来得保险：
 
 # with open('./test.txt', 'a') as f:
-#     f.write('Hello, world!')
+#     f.write('\nHello, world!')
 # 要写入特定编码的文本文件，请给open()函数传入encoding参数，将字符串自动转换成指定编码。
 
 # 细心的童鞋会发现，以'w'模式写入文件时，如果文件已存在，会直接覆盖（相当于删掉后新写入一个文件）。如果我们希望追加到文件末尾怎么办？可以传入'a'以追加（append）模式写入。
@@ -99,4 +99,19 @@ from io import BytesIO
 # 和StringIO类似，可以用一个bytes初始化BytesIO，然后，像读文件一样读取：
 # f = BytesIO(b'\xe4\xb8\xad\xe6\x96\x87')
 # print(f.read())
+
+
+try:
+    file = open('./practice.txt', 'r+')
+except Exception as e:
+    print('there is no file named as practice')
+    response = input('Do you want to new one?')
+    if response == 'y':
+        file = open('practice.txt', 'w')
+    else:
+        pass
+else:
+    file.write('hello,world')
+file.close()
+
 
