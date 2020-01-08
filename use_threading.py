@@ -83,12 +83,14 @@ def job1():
         A += 1
         print('job1', A)
     lock.release()
-n 
+
 def job2():
     global A, lock
+    lock.acquire()
     for i in range(10):
         A += 10
         print('job2', A)
+    lock.release()
     
     
 
