@@ -97,7 +97,7 @@ def multiCoreValue(num,v,lock):
         time.sleep(0.1)
         v.value += num
         print(v.value)
-    lock.release()
+    lock.release() 
 
 
 if __name__=='__main__':
