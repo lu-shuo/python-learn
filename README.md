@@ -1,1 +1,1 @@
-# pythonLearn
+# python study note
